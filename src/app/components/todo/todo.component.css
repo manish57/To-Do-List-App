@@ -1,0 +1,13 @@
+.box {
+    width: 50%;
+}
+
+.del {
+    margin-top: 5%; 
+    width: 30%;
+    display: inline-block;
+}
+
+.list {
+    margin: 0 auto; 
+}

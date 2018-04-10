@@ -1,0 +1,39 @@
+<div class="container box text-center">
+  <div class="card mt-4">
+    <div class="card-heading mt-2 mb-2">
+      <h5>
+        <i class="fa fa-list-ul" aria-hidden="true"></i>
+        Todo List App
+      </h5>
+    </div>
+
+    <div class="card-body">
+      <div class="add-new-task">
+        <form class="input-group" (submit)="addTodo()">
+          <input type="text" class="form-control" [(ngModel)]="inputText" name="inputText" placeholder="Add new task" aria-label="Add new task">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" (click)="addTodo()">
+              <i class="fa fa-plus"></i>
+            </button>
+          </span>
+        </form>
+      </div>
+
+      <div *ngFor="let todo of todos">
+        <div class="input-group">
+          <div class="checkbox mt-1 list">
+              <label>
+                <input type="checkbox" (change)="updateTodoStatus($event, todo.text)"> {{todo.text}}
+                <button type="button" class="btn btn-light" (click)="deleteTodo(todo.text)">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+              </label>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-lg btn-danger btn-block del" (click)=deleteSelected()>Delete Selected</button>
+      <button class="btn btn-lg btn-danger btn-block del" (click)=deleteAll()>Delete All</button>
+    </div>
+  </div>
+</div>
